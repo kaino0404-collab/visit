@@ -1,6 +1,16 @@
-import * as SQLite from 'expo-sqlite'
+import { Platform } from 'react-native'
 
-export const db = SQLite.openDatabaseSync('medvisit.db')
+let _db: any
+
+if (Platform.OS === 'web') {
+  const { openDatabaseSync } = require('./expo-sqlite-web')
+  _db = openDatabaseSync('medvisit.db')
+} else {
+  const SQLite = require('expo-sqlite')
+  _db = SQLite.openDatabaseSync('medvisit.db')
+}
+
+export const db = _db
 
 export function initDatabase(): void {
   db.execSync(`

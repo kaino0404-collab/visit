@@ -27,7 +27,8 @@
       "package": "com.personal.medvisit",
       "permissions": [
         "android.permission.RECORD_AUDIO",
-        "android.permission.INTERNET"
+        "android.permission.INTERNET",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
       ]
     },
     "plugins": [
@@ -40,10 +41,15 @@
         }
       ]
     ],
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
     "extra": {
       "eas": {
-        "projectId": "your-project-id"
+        "projectId": "c1659b75-fe74-433a-bffe-52f2c2c8d6f9"
       }
-    }
+    },
+    "owner": "kaino04"
   }
 }
